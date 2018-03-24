@@ -18,7 +18,8 @@ public class VulkanizerskaRadnja {
 	/**
 	 * U listu guma se dodaje guma koje se prosledjuje kao parametar.
 	 * @param a guma koje treba da se doda u listu.
-	 * @throws java.lang.RuntimeException ako je uneta guma null ili vec postoji u listi.
+	 * @throws java.lang.NullPointerException ako je uneta guma null.
+	 * @throws java.lang.RuntimeException ako uneta guma vec postoji u listi.
 	 */
 	public void dodajGumu(AutoGuma a) {
 		if (a == null)
@@ -42,7 +43,7 @@ public class VulkanizerskaRadnja {
 		LinkedList<AutoGuma> novaLista = new LinkedList<AutoGuma>();
 		
 		for (int i = 0; i < gume.size(); i++)
-			if (gume.get(i).equals(markaModel))
+			if (gume.get(i).getMarkaModel()!= null && gume.get(i).getMarkaModel().equals(markaModel))
 				novaLista.add(gume.get(i));
 
 		return novaLista;
